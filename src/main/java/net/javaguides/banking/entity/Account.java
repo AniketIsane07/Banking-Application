@@ -1,9 +1,6 @@
 package net.javaguides.banking.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.NamedEntityGraph;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,11 +13,15 @@ import lombok.Setter;
 @Table(name="accounts")
 public class Account {
     @Id
-    private long id;
-    private String accountholderName;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "account_holder_name")
+    private String accountHolderName;
     private double balance;
 
     public Account() {
 
     }
+
 }
